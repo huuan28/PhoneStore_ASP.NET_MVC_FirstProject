@@ -1,0 +1,39 @@
+﻿@model DAWebPhone.Models.Brand
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="text-align:center;color:red;">Xác nhận xóa?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.BraID)
+    <div class="form-actions no-color d-flex justify-content-center">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-success" })
+    </div>
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BraID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BraName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraName)
+        </dd>
+
+    </dl>
+
+</div>

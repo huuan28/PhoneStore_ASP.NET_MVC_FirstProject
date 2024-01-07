@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DAWebPhone.Models.CartDetailViewModel>
+@using DAWebPhone.Models;
+@{
+    ViewBag.Title = "GetCartPage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h2 style="text-align:center;color:red">Giỏ hàng</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Tên Sản phẩm</th>
+        <th>Mã Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Màu sắc</th>
+        <th>Thành tiền</th>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Product.ProName</td>
+            <td>@item.Product.ProID</td>
+            @using (Html.BeginForm("Update", "Cart"))
+            {
+                <td>
+                    <input style="width:50px;" type="number" name="Quantity" value="@item.Cart.Quantity" />
+                    <input type="hidden" name="id" value="@item.Cart.CartID"  />
+                </td>
+                <td>
+                    <select name="Color">
+                        <option value="@item.Cart.Color">@Translate.Color(item.Cart.Color)</option>
+                        @foreach (var i in item.Product.ListColor())
+                        {
+                            <option value="@i">@Translate.Color(i)</option>
+                        }
+                    </select>
+                </td>
+                <th>@item.ShowPrice</th>
+                <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+
+            }
+            <td>
+                <a class = "btn btn-danger" href="@Url.Action("Delete","Cart", new { id = item.Cart.CartID, page = 1 })">Xóa</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <th colspan="4">
+            Tổng thanh toán:
+        </th>
+        <th>
+            @ViewBag.FinalPrice đ
+        </th>
+    </tr>
+</table>
+@using (Html.BeginForm("Order", "Cart"))
+{
+    <input type="text" name="DeliAddress" placeholder="Nhập địa chỉ giao hàng" />
+    <select name="PayMethod">
+        <option value="0">Ship COD</option>
+        <option value="1">Trừ tài khoản</option>
+    </select>
+    <input type="submit" value="Xác nhận" class="btn btn-success" />
+}

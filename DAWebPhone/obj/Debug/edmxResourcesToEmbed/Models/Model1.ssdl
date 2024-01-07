@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBWebPhoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="AdmID" />
+    </Key>
+    <Property Name="AdmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmLogName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdmName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdmPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdmEmail" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="AdmPhone" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="AdmGender" Type="int" Nullable="false" />
+    <Property Name="AdmBirth" Type="date" Nullable="false" />
+    <Property Name="AdmAddress" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="AdmRole" Type="int" />
+    <Property Name="AdmAvatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="AdmStatus" Type="int" />
+    <Property Name="AdmActive" Type="bit" />
+    <Property Name="AdmCreDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BraID" />
+    </Key>
+    <Property Name="BraID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BraName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CusID" Type="int" />
+    <Property Name="ProID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatID" />
+    </Key>
+    <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CusID" />
+    </Key>
+    <Property Name="CusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CusLogName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CusPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CusEmail" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CusPhone" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="CusGender" Type="int" Nullable="false" />
+    <Property Name="CusBirth" Type="date" Nullable="false" />
+    <Property Name="CusAddress" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CusAvatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Credit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VIP" Type="int" />
+    <Property Name="CusStatus" Type="int" />
+    <Property Name="CusActive" Type="bit" />
+    <Property Name="CusCreDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProID" Type="int" />
+    <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ImportDate" Type="datetime" />
+    <Property Name="DvStatus" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ImagesPro">
+    <Key>
+      <PropertyRef Name="ImgID" />
+    </Key>
+    <Property Name="ImgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Src" Type="nvarchar(max)" />
+    <Property Name="ProID" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="DetID" />
+    </Key>
+    <Property Name="DetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrdID" Type="int" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderPro">
+    <Key>
+      <PropertyRef Name="OrdID" />
+    </Key>
+    <Property Name="OrdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CusID" Type="int" Nullable="false" />
+    <Property Name="OrdDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DeliAddress" Type="nvarchar(max)" />
+    <Property Name="OrdStatus" Type="int" Nullable="false" />
+    <Property Name="PayMethod" Type="int" Nullable="false" />
+    <Property Name="Handler" Type="int" />
+    <Property Name="AcceptedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SalePercent" Type="int" />
+    <Property Name="BaseImg" Type="nvarchar(max)" />
+    <Property Name="ImgList" Type="nvarchar(max)" />
+    <Property Name="ProDescription" Type="nvarchar(max)" />
+    <Property Name="RAM" Type="int" />
+    <Property Name="CPU" Type="varchar" MaxLength="20" />
+    <Property Name="Capacity" Type="varchar" MaxLength="5" />
+    <Property Name="Hot" Type="bit" />
+    <Property Name="New" Type="bit" />
+    <Property Name="BraID" Type="int" />
+    <Property Name="CatID" Type="int" />
+  </EntityType>
+  <Association Name="FK__ImagesPro__ProID__6FE99F9F">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ImagesPro" Type="Self.ImagesPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="ImagesPro">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPro__CusID__45F365D3">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CusID" />
+      </Principal>
+      <Dependent Role="OrderPro">
+        <PropertyRef Name="CusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD_PRO">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CART_CUS">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CusID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DV_PRO">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OD_DV">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OD_OP">
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPro">
+        <PropertyRef Name="OrdID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OP_AD">
+    <End Role="AdminUser" Type="Self.AdminUser" Multiplicity="0..1" />
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminUser">
+        <PropertyRef Name="AdmID" />
+      </Principal>
+      <Dependent Role="OrderPro">
+        <PropertyRef Name="Handler" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRO_BRA">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BraID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRO_CAT">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CatID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBWebPhoneModelStoreContainer">
+    <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImagesPro" EntityType="Self.ImagesPro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPro" EntityType="Self.OrderPro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ImagesPro__ProID__6FE99F9F" Association="Self.FK__ImagesPro__ProID__6FE99F9F">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ImagesPro" EntitySet="ImagesPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPro__CusID__45F365D3" Association="Self.FK__OrderPro__CusID__45F365D3">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderPro" EntitySet="OrderPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD_PRO" Association="Self.FK_CARD_PRO">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CART_CUS" Association="Self.FK_CART_CUS">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DV_PRO" Association="Self.FK_DV_PRO">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OD_DV" Association="Self.FK_OD_DV">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OD_OP" Association="Self.FK_OD_OP">
+      <End Role="OrderPro" EntitySet="OrderPro" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OP_AD" Association="Self.FK_OP_AD">
+      <End Role="AdminUser" EntitySet="AdminUser" />
+      <End Role="OrderPro" EntitySet="OrderPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRO_BRA" Association="Self.FK_PRO_BRA">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRO_CAT" Association="Self.FK_PRO_CAT">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

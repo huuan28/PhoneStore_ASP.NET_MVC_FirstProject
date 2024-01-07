@@ -1,0 +1,18 @@
+﻿@model DAWebPhone.Models.OrderPro
+
+@{
+    ViewBag.Title = "CancelOrder";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Bạn chắc chắn muốn xóa đơn?</h2>
+<div style="display:inline">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(a=>a.OrdID)
+        @Html.HiddenFor(a=>a.CusID)
+        <input type="submit" name="name" value="Xác nhận hủy" />
+    }
+    <a href="@Url.Action("OrderHistory", new { id = Model.CusID })">Quay lại</a>
+</div>
+

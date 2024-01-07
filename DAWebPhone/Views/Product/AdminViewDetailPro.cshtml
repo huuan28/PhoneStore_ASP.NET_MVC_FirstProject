@@ -1,0 +1,93 @@
+﻿@model DAWebPhone.Models.ProductDetailViewModel
+
+@{
+    ViewBag.Title = "AdminViewDetailPro";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/detailspro.css" rel="stylesheet" />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 bd">
+            <div id="bdr">
+
+                <div class="tit">
+                    <h3><strong>@Model.Product.ProName</strong></h3>
+
+                    <del>@Model.Price</del> <span class="sale"><sup>@Model.Salepercent</sup></span> <span class="pr">@Model.FinalPrice</span>
+                </div>
+                <hr />
+                <div id="demo" class="xxx carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        @for (int i = 1; i <= Model.ImagesPros.Count; i++)
+                        {
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="@i"></button>
+                        }
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="@Model.Product.BaseImg" style="width:100%">
+                        </div>
+                        @if (Model.ImagesPros.Count != 0)
+                        {
+                            for (int i = 0; i < Model.ImagesPros.Count; i++)
+                            {
+                                <div class="carousel-item">
+                                    <img src="@string.Format($"{Model.Product.ImgList}{Model.ImagesPros[i].Src}")" class="w-100" />
+                                </div>
+                            }
+                        }
+                    </div>
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+                <div class="link">
+                    <a href="@Url.Action("Edit","Product",new {id = Model.Product.ProID})" class="btn btn-danger">Cập nhật</a>
+                    <a href="@Url.Action("Delete","Product",new {id = Model.Product.ProID})" class="btn btn-success cart">Xóa</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-0 col-sm-0 col-md-6 col-lg-8 ct">
+            <p>
+                @Model.Product.ProDescription;
+            </p>
+            <table class="table table-hover">
+
+                <tr>
+                    <th class="bg-warning" width="180">Tên</th>
+                    <td>@Model.Product.ProName</td>
+                </tr>
+                <tr>
+                    <th class="bg-warning">Hãng</th>
+                    <td>@Model.Brand.BraName</td>
+                </tr>
+                <tr>
+                    <th class="bg-warning">Chíp xử lý</th>
+                    <td>@Model.Product.CPU</td>
+                </tr>
+                <tr>
+                    <th class="bg-warning">RAM</th>
+                    <td>@Model.Product.RAM GB</td>
+                </tr>
+                <tr>
+                    <th class="bg-warning">Dung lượng lưu trữ</th>
+                    <td>@Model.Product.Capacity GB</td>
+                </tr>
+                <tr>
+                    <th class="bg-warning">Bảo hành</th>
+                    <td>24 tháng</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

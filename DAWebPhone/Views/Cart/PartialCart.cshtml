@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DAWebPhone.Models.CartDetailViewModel>
+
+<style>
+    .btn-order {
+        position: fixed;
+        font-size: small;
+        right: 20px;
+    }
+
+    .price {
+        padding-left: 5px;
+        padding-right: 5px;
+        position: fixed;
+        right: 75px;
+    }
+
+    .number {
+        padding-left: 5px;
+        padding-right: 5px;
+        position: fixed;
+        right: 200px;
+        background-color: orangered;
+    }
+
+    .name {
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: orange;
+    }
+</style>
+
+<a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+    <i class='bx bx-cart-download'></i>
+    <span class="badge bg-success badge-number">@ViewBag.Count</span>
+</a><!-- End Messages Icon -->
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+    <li class="dropdown-header">
+        Quý khách có @ViewBag.Count sản phẩm trong giỏ
+        <a href="@Url.Action("CartPage","Cart")"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem chi tiết giỏ hàng</span></a>
+    </li>
+    @foreach (var i in Model)
+    {
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li class="message-item">
+            <span class="name rounded-pill ms-2"> @i.Product.ProName</span>
+            <span class="number rounded-pill ms-2">@i.Cart.Quantity</span>
+            <span class="bg-info rounded-pill ms-2 price"> @i.ShowPrice</span>
+            <a class="btn-order btn btn-danger rounded-pill ms-2 badge" href="@Url.Action("Delete","Cart", new {id=i.Cart.CartID})">Xóa</a>
+        </li>
+    }
+    <li class="dropdown-footer">
+    </li>
+
+</ul>

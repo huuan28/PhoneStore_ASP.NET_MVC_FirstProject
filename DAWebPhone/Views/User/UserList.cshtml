@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DAWebPhone.Models.Customer>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center; color:red;">Danh sách khách hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusLogName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CusCreDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusLogName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoiTinh)
+        </td>
+        <td>
+            @string.Format($"{item.CusBirth.Day}/{item.CusBirth.Month}/{item.CusBirth.Year}")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusAddress)
+        </td>
+        <td>
+            @string.Format($"{item.Credit:#,0} đ")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusCreDate)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

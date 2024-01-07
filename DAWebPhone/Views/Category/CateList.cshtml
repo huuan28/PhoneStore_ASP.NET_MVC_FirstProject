@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DAWebPhone.Models.Category>
+@{
+    ViewBag.Title = "CateList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="tit">Danh sách phân loại</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CatID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatName)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", "Category", new { id = item.CatID }, new {@class = "btn btn-success"}) |
+            @Html.ActionLink("Delete", "Delete","Category", new { id = item.CatID }, new {@class = "btn btn-danger"})
+        </td>
+    </tr>
+}
+</table>

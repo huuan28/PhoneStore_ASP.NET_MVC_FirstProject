@@ -1,0 +1,15 @@
+﻿.div-tit {
+    padding: 10px;
+    text-align: center;
+    color: orangered;
+}
+
+.div-form {
+    padding: 20px;
+    margin: 50px;
+}
+
+    .div-form input label {
+        display: flex;
+        margin-left:50px;
+    }

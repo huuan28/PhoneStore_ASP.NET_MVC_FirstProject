@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBWebPhoneModelStoreContainer" CdmEntityContainer="DBWebPhoneEntities">
+    <EntitySetMapping Name="AdminUsers">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.AdminUser">
+        <MappingFragment StoreEntitySet="AdminUser">
+          <ScalarProperty Name="AdmID" ColumnName="AdmID" />
+          <ScalarProperty Name="AdmLogName" ColumnName="AdmLogName" />
+          <ScalarProperty Name="AdmName" ColumnName="AdmName" />
+          <ScalarProperty Name="AdmPass" ColumnName="AdmPass" />
+          <ScalarProperty Name="AdmEmail" ColumnName="AdmEmail" />
+          <ScalarProperty Name="AdmPhone" ColumnName="AdmPhone" />
+          <ScalarProperty Name="AdmGender" ColumnName="AdmGender" />
+          <ScalarProperty Name="AdmBirth" ColumnName="AdmBirth" />
+          <ScalarProperty Name="AdmAddress" ColumnName="AdmAddress" />
+          <ScalarProperty Name="AdmRole" ColumnName="AdmRole" />
+          <ScalarProperty Name="AdmAvatar" ColumnName="AdmAvatar" />
+          <ScalarProperty Name="AdmStatus" ColumnName="AdmStatus" />
+          <ScalarProperty Name="AdmActive" ColumnName="AdmActive" />
+          <ScalarProperty Name="AdmCreDate" ColumnName="AdmCreDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="BraID" ColumnName="BraID" />
+          <ScalarProperty Name="BraName" ColumnName="BraName" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="CusLogName" ColumnName="CusLogName" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="CusPass" ColumnName="CusPass" />
+          <ScalarProperty Name="CusEmail" ColumnName="CusEmail" />
+          <ScalarProperty Name="CusPhone" ColumnName="CusPhone" />
+          <ScalarProperty Name="CusGender" ColumnName="CusGender" />
+          <ScalarProperty Name="CusBirth" ColumnName="CusBirth" />
+          <ScalarProperty Name="CusAddress" ColumnName="CusAddress" />
+          <ScalarProperty Name="CusAvatar" ColumnName="CusAvatar" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="VIP" ColumnName="VIP" />
+          <ScalarProperty Name="CusStatus" ColumnName="CusStatus" />
+          <ScalarProperty Name="CusActive" ColumnName="CusActive" />
+          <ScalarProperty Name="CusCreDate" ColumnName="CusCreDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Device">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+          <ScalarProperty Name="DvStatus" ColumnName="DvStatus" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagesProes">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.ImagesPro">
+        <MappingFragment StoreEntitySet="ImagesPro">
+          <ScalarProperty Name="ImgID" ColumnName="ImgID" />
+          <ScalarProperty Name="Src" ColumnName="Src" />
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="DetID" ColumnName="DetID" />
+          <ScalarProperty Name="OrdID" ColumnName="OrdID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderProes">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.OrderPro">
+        <MappingFragment StoreEntitySet="OrderPro">
+          <ScalarProperty Name="OrdID" ColumnName="OrdID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="OrdDate" ColumnName="OrdDate" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="DeliAddress" ColumnName="DeliAddress" />
+          <ScalarProperty Name="OrdStatus" ColumnName="OrdStatus" />
+          <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+          <ScalarProperty Name="Handler" ColumnName="Handler" />
+          <ScalarProperty Name="AcceptedDate" ColumnName="AcceptedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DBWebPhoneModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SalePercent" ColumnName="SalePercent" />
+          <ScalarProperty Name="BaseImg" ColumnName="BaseImg" />
+          <ScalarProperty Name="ImgList" ColumnName="ImgList" />
+          <ScalarProperty Name="ProDescription" ColumnName="ProDescription" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="CPU" ColumnName="CPU" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Hot" ColumnName="Hot" />
+          <ScalarProperty Name="New" ColumnName="New" />
+          <ScalarProperty Name="BraID" ColumnName="BraID" />
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

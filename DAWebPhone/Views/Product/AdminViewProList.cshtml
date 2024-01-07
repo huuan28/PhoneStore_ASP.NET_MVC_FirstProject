@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DAWebPhone.Models.ProductDetailViewModel>
+
+@{
+    ViewBag.Title = "AdminViewProList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div style="text-align:center;color:orangered;padding:10px;">
+        <h2>Danh sách sản phẩm</h2>
+    </div>
+
+</div>
+<table class="table">
+    <tr>
+        <th>Hình ảnh</th>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Hãng</th>
+        <th>Phân loại</th>
+        <th>Giá gốc</th>
+        <th>Giảm giá</th>
+        <th>Giá chính thức</th>
+        <th>Số lượng</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@item.Product.BaseImg" width="50" /></td>
+            <td>@item.Product.ProID</td>
+            <td>@item.Product.ProName</td>
+            <td>@item.Brand.BraName</td>
+            <td>@item.Category.CatName</td>
+            <td>@item.Price</td>
+            <td>@item.Salepercent</td>
+            <td>@item.FinalPrice</td>
+            <td>@item.Product.Quantity</td>
+            <td>
+            @Html.ActionLink("Chi tiết", "AdminViewDetailPro", "Product", new { id = item.Product.ProID }, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>

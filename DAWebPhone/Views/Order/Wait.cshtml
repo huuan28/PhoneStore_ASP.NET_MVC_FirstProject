@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DAWebPhone.Models.OrderViewModel>
+
+@{
+    ViewBag.Title = "Wait";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center; color:red;">Duyệt đơn</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Mã đơn</th>
+        <th>Khách hàng</th>
+        <th>Tổng thanh toán</th>
+        <th>Hình thức mua</th>
+        <th>Địa chỉ giao hàng</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.OrderPro.OrdID</td>
+        <td>@item.Customer.CusName</td>
+        <td>@item.Price</td>
+        <td>@item.PayMethod</td>
+        <td>@item.OrderPro.DeliAddress</td>
+        <td>
+            @Html.ActionLink("Duyệt", "Accept", new { id = item.OrderPro.OrdID }, new {@class="btn btn-success"}) |
+            @Html.ActionLink("Chi tiết", "ViewAdminOrder", new { id = item.OrderPro.OrdID }, new { @class = "btn btn-info" })|
+            @Html.ActionLink("Từ chối", "Refuse", new { id = item.OrderPro.OrdID }, new { @class = "btn btn-danger" })
+
+        </td>
+    </tr>
+}
+
+</table>

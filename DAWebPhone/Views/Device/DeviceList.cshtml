@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DAWebPhone.Models.DeviceDetailViewModel>
+
+@{
+    ViewBag.Title = "DeviceList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    #s {
+        margin: 10px;
+        display: inline;
+    }
+</style>
+<div id="s">
+    @using (Html.BeginForm("Search", "Device"))
+    {
+        <a class="btn btn-success" href="@Url.Action("Import","Device")">Thêm mới </a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <input type="number" value="Mã sản phẩm" name="ProID" placeholder="Mã sản phẩm" />
+        <input type="submit" value="Tìm" class="btn btn-info" />
+    }
+</div>
+
+
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>Tên sản phẩm</th>
+        <th>Mã sản phẩm</th>
+        <th>Mã thiết bị</th>
+        <th>Màu</th>
+        <th>Trạng thái</th>
+        <th colspan="2">Ghi chú</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Product.ProName</td>
+            <td>@item.Product.ProID</td>
+            <td>@item.Device.Code</td>
+            <td>@item.Color</td>
+            <td>@item.Status</td>
+            <td>@item.Device.Note</td>
+            <td>
+                <a class="btn btn-info" href="@Url.Action("Edit", "Device", new {code = item.Device.Code})">Sửa</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete", "Device", new {code = item.Device.Code})">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>

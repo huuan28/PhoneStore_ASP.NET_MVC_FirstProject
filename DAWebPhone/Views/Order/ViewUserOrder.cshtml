@@ -1,0 +1,59 @@
+﻿@model DAWebPhone.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "ViewUserOrder";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div style="margin:50px;">
+    <h2 style="text-align:center;color:red;">Chi tiết hóa đơn</h2>
+    <table class="table table-hover">
+        <tr>
+            <td>Mã đơn</td>
+            <td>@Model.OrderPro.OrdID</td>
+        </tr>
+        <tr>
+            <td>Ngày đặt</td>
+            <td>@Model.OrderPro.OrdDate</td>
+        </tr>
+        <tr>
+            <td>Hình thức mua</td>
+            <td>@Model.PayMethod</td>
+        </tr>
+        <tr>
+            <td>Trạng thái</td>
+            <td>@Model.Status</td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td>@Model.OrderPro.DeliAddress</td>
+        <tr>
+            @if (Model.OrderPro.OrdStatus == 1)
+            {
+                <td>  @Html.ActionLink("Hủy", "CancelOrder", new { id = Model.OrderPro.OrdID }, new { @class = "btn btn-danger" })</td>
+            }
+        </tr>
+    </table>
+    <h4 style="text-align:center">Chi tiết</h4>
+    <table class="table table-hover">
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Mã thiết bị</th>
+            <th>Màu</th>
+            <th>Giá</th>
+        </tr>
+        @foreach (var item in Model.OrderDetail)
+        {
+            <tr>
+                <td> @item.Product.ProName</td>
+                <td>@item.Device.Code</td>
+                <td> @item.Color</td>
+                <td> @item.FinalPrice</td>
+            </tr>
+        }
+        <tr>
+            <th colspan="3">Tổng</th>
+            <th>@Model.Price</th>
+        </tr>
+    </table>
+
+</div>

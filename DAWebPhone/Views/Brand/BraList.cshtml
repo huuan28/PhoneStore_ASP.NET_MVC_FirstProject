@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DAWebPhone.Models.Brand>
+
+@{
+    ViewBag.Title = "BraList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="tit">Danh sách nhãn hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BraID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BraName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BraID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BraName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.BraID }, new {@class="btn btn-info"}) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.BraID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+</table>

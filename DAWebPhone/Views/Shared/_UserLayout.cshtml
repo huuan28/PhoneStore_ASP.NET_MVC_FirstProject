@@ -1,0 +1,170 @@
+﻿@using DAWebPhone.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- CSS files -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/probox.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center bg-danger">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="@Url.Action("Index","Home")" class=" nut logo d-flex align-items-center">
+                <img src="~/Images/Logo/king.jpg" class="rounded-pill" /><span class="d-none d-lg-block">Phone<span class="text-warning">K</span></span>
+            </a>
+        </div><!-- End Logo -->
+
+        <div class="nut btn btn-outline-success d-flex align-items-center justify-content-between">
+            <a href="@Url.Action("About","Home")" class="nav-link d-flex align-items-center active">
+                Giới thiệu
+            </a>
+        </div>
+        <div class="nut btn btn-outline-dark d-flex align-items-center justify-content-between">
+            <a href="@Url.Action("Products","Product")" class="nav-link d-flex align-items-center active">
+                Sản phẩm
+            </a>
+        </div>
+        <div class="nut btn btn-outline-warning d-flex align-items-center justify-content-between">
+            <a href="@Url.Action("SaleList","Product")" class="nav-link d-flex align-items-center active">
+                SALES!
+            </a>
+        </div>
+
+    @Html.Action("Search", "Product")
+<!-- End Search Bar -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+
+                <li class="nav-item dropdown">
+                    @Html.Action("PartialCart", "Cart")
+
+
+                </li><!-- End Messages Nav -->
+
+                <li class="nav-item dropdown pe-3">
+                    @{
+                        Html.RenderAction("PartialProfile", "User");
+                    }
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+
+    <i id="tg" class="bx bx-menu-alt-left toggle-sidebar-btn"></i><span></span>
+
+
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("ClearSession","Product")">
+                    <i class='bi bi-grid'></i>
+                    <span>Tất cả</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("List","Product", new { hot = 1 })">
+                    <i class='bi bi-gem'></i>
+                    <span>HOT</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("List","Product", new { New = 1 })">
+                    <i class='bi bi-bar-chart'></i>
+                    <span>MỚI</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("List","Product", new { cate = 2 })">
+                    <i class='bx bxs-devices'></i>
+                    <span>Máy tính bảng</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#brand-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Hãng</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="brand-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    @Html.Action("PartialList", "Brand")
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#cate-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Phụ kiện</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="cate-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("List","Product", new { cate = 3 })">
+                            <i class="bi bi-circle"></i><span>Sạc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List","Product", new { cate = 4 })">
+                            <i class="bi bi-circle"></i><span>Sạc dự phòng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List","Product", new { cate = 5 })">
+                            <i class="bi bi-circle"></i><span>Tai nghe có dây</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List","Product", new { cate = 6 })">
+                            <i class="bi bi-circle"></i><span>Tai nghe không dây</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </aside><!-- End Sidebar-->
+    <main id="main" class="mt-5 main">
+        <div style="margin:30px">
+            @RenderBody()
+        </div>
+    </main>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            <strong>© 2023 PhoneK store</strong><br />
+            SĐT: 0987654321 -  Email: phonek@gmail.com <br />
+            Địa chỉ: 8888 Sư Vạn Hạnh, P.13, Q.10, Tp.HCM
+        </div>
+    </footer><!-- End Footer -->
+    <!-- Vendor JS Files -->
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/assets/js/tg.js"></script>
+</body>
+</html>

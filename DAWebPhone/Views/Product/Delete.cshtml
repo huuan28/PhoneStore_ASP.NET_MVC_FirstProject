@@ -1,0 +1,53 @@
+﻿@model DAWebPhone.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="text-align:center;color:red;">Xác nhận xóa?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProID)
+    <div class="form-actions no-color d-flex justify-content-center">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        @Html.ActionLink("Quay lại", "Index","", new {@class = "btn btn-success"})
+    </div>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src="@Model.BaseImg" width="250" style="border:2px solid black"/>
+        </div>
+        <div class="col-9">
+            <table class="table table-hover">
+                <tr>
+                    <td>Mã sản phẩm</td>
+                    <td>@Model.ProID</td>
+                </tr>
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td>@Model.ProName</td>
+                </tr>
+                <tr>
+                    <td>Giá</td>
+                    <td>@Model.FinalPrice</td>
+                </tr>
+                <tr>
+                    <td>Hãng</td>
+                    <td>@Model.Brand.BraName</td>
+                </tr>
+                <tr>
+                    <td>Loại</td>
+                    <td>@Model.Category.CatName</td>
+                </tr>
+                <tr>
+                    <td>Số lượng</td>
+                    <td>@Model.Quantity</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

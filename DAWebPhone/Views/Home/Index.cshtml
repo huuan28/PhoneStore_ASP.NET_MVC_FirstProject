@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<style>
+    .tit {
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+    }
+
+        .tit h1 {
+            color: orangered
+        }
+
+    .xxx {
+        background-color: orange;
+        padding: 10px;
+        color: white;
+        border-radius: 15px;
+        align-items: center;
+    }
+
+    .descript {
+        padding-top: 30px;
+        margin: 30px auto;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 tit">
+            <div class="descript">
+
+                <h1>!! SẢN PHẨM HOT !!</h1>
+                <hr />
+                <h3>Đã HOT mà giá còn shock! Còn chần chờ gì mà không nhanh tay mua ngay thôi nào</h3>
+                <br />
+                <a class="btn btn-danger" href="@Url.Action("List","Product",new {hot = 1})">!!! Xem ngay !!!</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            @Html.Action("Top6Hot")
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12 col-md-6">
+
+            @Html.Action("TopSale")
+        </div>
+        <div class="col-12 col-md-6 tit">
+            <div class="descript">
+                <h1>SẢN PHẨM MỚI</h1>
+                <hr />
+                <h3>Hàng mới về nóng hổi, giá cả ưu đãi hấp dẫn, mau sắm ngay cho mình một chú dế yêu thời thượng đi nào</h3>
+                <br />
+                <a class="btn btn-danger" href="@Url.Action("List","Product",new {hot = 1})">!!! Xem ngay !!!</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12 col-md-6 tit">
+            <div class="descript">
+                <h1>SẢN PHẨM BÁN CHẠY</h1>
+                <hr />
+                <h3>Nhà nhà mua, người người sắm</h3>
+                <h3>Nhìn là say đắm, xài là đắm say</h3>
+                <br />
+                <a class="btn btn-danger" href="@Url.Action("List","Product",new {hot = 1})">!!! Xem ngay !!!</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            @Html.Action("Top6Hot")
+        </div>
+    </div>
+</div>
+
+
+

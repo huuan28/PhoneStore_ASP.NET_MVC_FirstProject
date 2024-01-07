@@ -1,0 +1,75 @@
+﻿@model DAWebPhone.Models.AdminUser
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/infopages.css" rel="stylesheet" />
+<style>
+    #avt{
+        position:relative;
+        border:4px solid darkorange;
+        border-radius:5px;
+    }
+    #avt a{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+        align-content:center;
+        border-radius:0
+    }
+    #main{
+        display:flex;
+        align-items:center;
+    }
+</style>
+
+<div id="main" class="container" style="margin:30px auto; padding:20px;">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div id="avt">
+            <img src="@Model.AdmAvatar" style="width:100%"/>
+                @Html.ActionLink("Cập nhật thông tin", "EditProfile", new { id = Model.AdmID }, new { @class = "btn btn-danger" })
+
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="div-tit">
+                <h2>Thông tin tài khoản</h2>
+                <hr />
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="bg-info">Tên</th>
+                    <td>@Model.AdmName</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Email</th>
+                    <td>@Model.AdmEmail</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Số điện thoại</th>
+                    <td>@Model.AdmPhone</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">giới tính</th>
+                    <td>@Model.GioiTinh</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Ngày sinh</th>
+                    <td>@Model.AdmBirth</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Địa chỉ</th>
+                    <td>@Model.AdmAddress</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Cấp độ</th>
+                    <td>@Model.AdmRole</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .dbd {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .db.d1 a, div {
+        vertical-align: central;
+    }
+    .dt {
+        background-color: lightskyblue;
+    }
+
+    .d1 {
+        background-color: orange;
+    }
+
+    .div-center {
+        height: 300px;
+        margin: 10px auto;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
+        .div-center:hover {
+            transform: rotate(2deg);
+            transition: 0.5s;
+        }
+    .div-center a{
+        color: white;
+    }
+
+    .d2 {
+        background-color: orangered;
+    }
+
+    .d3 {
+        background-color: forestgreen;
+    }
+</style>
+<div class="container-sm">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="div-center dt div-center">
+
+                <table class="table table-hover table-bordered">
+                    <tr>
+
+                    <th style="text-align:center;font-size:30px;color:orangered" colspan="3">
+                        <i class='bx bx-trending-up'></i> Doanh Số
+                    </th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th class="text-danger">Số lượng</th>
+                        <th class="text-danger">Doanh thu</th>
+                    </tr>
+                    <tr>
+                        <th width="130">
+                            Hôm nay
+                        </th>
+                        <td> @ViewBag.CountD</td>
+                        <td>@ViewBag.MD </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Trong tháng
+                        </th>
+                        <td> @ViewBag.CountM</td>
+                        <td>@ViewBag.MM </td>
+                    </tr>
+                    <tr>
+                        <th >
+                            Trong năm
+                        </th>
+                        <td> @ViewBag.CountY</td>
+                        <td>@ViewBag.MY </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Tất cả
+                        </th>
+                        <td>@ViewBag.TotalCount </td>
+                        <td>@ViewBag.MA </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 dbd">
+            <div class="d1 div-center">
+                <i class='bx bxs-bell-ring'></i>
+                <a href="@Url.Action("Wait","Order")">Đơn hàng</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 dbd">
+            <div class="d2 div-center">
+                <i class='bx bxl-product-hunt'></i>
+                <a href="@Url.Action("AdminViewProList","Product")">Sản phẩm</a>
+
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 dbd">
+            <div class="d3 div-center">
+                <i class='bx bxs-user-detail'></i>
+                <a href="@Url.Action("UserList","User")">Khách hàng</a>
+            </div>
+        </div>
+
+    </div>
+</div>

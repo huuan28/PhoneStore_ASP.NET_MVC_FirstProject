@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/admsyle.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="@Url.Action("Dashboard","Admin")" class="logo d-flex align-items-center">
+                <img src="~/Images/Logo/king.jpg" />
+                <span class="d-none d-lg-block">Dashboard</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+                @Html.Action("PartialProfile","Admin")
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <!-- Đơn hàng -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Đơn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("Wait","Order")">
+                            <i class="bi bi-circle"></i><span>Chưa xử lý</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ViewAllOrders","Order",new {id = 2})">
+                            <i class="bi bi-circle"></i><span>Đã xử lý</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ViewAllOrders","Order",new {id = 3})">
+                            <i class="bi bi-circle"></i><span>Đã hủy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ViewAllOrders","Order",new {id = 4})">
+                            <i class="bi bi-circle"></i><span>Khách hủy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ViewAllOrders","Order")">
+                            <i class="bi bi-circle"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <!-- khách hàng -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#cus-nav" data-bs-toggle="collapse" href="@Url.Action("ShowListCus","Admin")">
+                    <i class="bi-people"></i>
+                    <span>Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="cus-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("UserList","User",new {id = 0})">
+                            <i class="bi bi-circle"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UserList","User",new {id = 1})">
+                            <i class="bi bi-circle"></i><span>VIP</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UserList","User",new {id = 2})">
+                            <i class="bi bi-circle"></i><span>Chưa mua</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UserList","User",new {id = 3})">
+                            <i class="bi bi-circle"></i><span>Hay hủy đơn</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <!--Sản phẩm-->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("AdminViewProList","Product")">
+                            <i class="bi bi-circle"></i><span>Danh sách sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Add","Product")">
+                            <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DeviceList","Device")">
+                            <i class="bi bi-circle"></i><span>Danh sách thiết bị</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Import","Device")">
+                            <i class="bi bi-circle"></i><span>Nhập thiết bị</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Loại sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("CateList","Category")">
+                            <i class="bi bi-circle"></i><span>Danh sách phân loại</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Create","Category")">
+                            <i class="bi bi-circle"></i><span>Thêm loại sản phẩm mới</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Forms Nav -->
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-bar-chart"></i><span>Nhãn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("BraList","Brand")">
+                            <i class="bi bi-circle"></i><span>Danh sách nhãn hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Create","Brand")">
+                            <i class="bi bi-circle"></i><span>Thêm nhãn hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </aside><!-- End Sidebar-->
+    <main id="main" class="mt-5 main">
+        @RenderBody()
+    </main>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Đồ án <strong>Lập trình web</strong>. Website bán điện thoại
+        </div>
+        <div class="credits">
+           
+            Hữu An - Quang Mạnh - Anh Kiệt - Minh Trọng
+        </div>
+    </footer><!-- End Footer -->
+
+    <!-- Template Main JS File -->
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/changeImg.js"></script>
+</body>
+</html>

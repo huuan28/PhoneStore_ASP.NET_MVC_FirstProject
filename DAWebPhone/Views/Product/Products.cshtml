@@ -1,0 +1,94 @@
+﻿@model PagedList.PagedList<ProductDetailViewModel>
+@using DAWebPhone.Models;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    .loc {
+        position: absolute;
+        right: 5px;
+        top: 125px;
+    }
+
+    .inp {
+        width: 140px;
+    }
+
+    #bt {
+        background-color: orange;
+        color: white;
+        border-radius: 15%;
+        border: 0;
+        height: 30px;
+        width: 45px;
+    }
+</style>
+
+<div class="offcanvas offcanvas-end" id="demo">
+    <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Lọc sản phẩm</h1>
+        <button style="width:45px;" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form action="@Url.Action("Products","Product")" method="POST">
+            @Html.Action("SelectCate", "Category")
+            <br />
+            @Html.Action("SelectBrand", "Brand")
+            <label>Giá thấp nhất</label>
+            <input class="form-control" type="number" name="min" value="@ViewBag.min" />
+            <label>Giá cao nhất</label>
+            <input class="form-control" type="number" name="max" value="@ViewBag.max" />
+            <br />
+            <input id="bt" type="submit" value="Lọc" />
+        </form>
+    </div>
+</div>
+<div class="loc">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+        Lọc
+    </button>
+</div>
+<div class="div-page">
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) / @Model.PageCount
+</div>
+<div class="MenuPage containerli">
+    @Html.PagedListPager(Model, page => Url.Action("Products", "Product", new { page = page }))
+</div>
+<link href="~/Content/pagelist.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+                <div class="pro-box" onclick="window.location.href = '@Url.Action("DetailPro","Product",new { id = item.Product.ProID })'">
+
+                    <div class="pro-img" href="#" id="@item.Product.ProID">
+                        <img src="@item.Product.BaseImg" />
+                    </div>
+                    <img src="~/Images/boom.png" class="saleimg" />
+                    <div class="pro-sale">
+                        -@item.Product.SalePercent%
+                    </div>
+                    <a href="@Url.Action("AddToCart","Cart",new {id = item.Product.ProID, page = Model.PageNumber})" class="pro-cart btn btn-danger"><i class='bx bx-cart-add'></i></a>
+                    <div class="pro-name">
+                        <span class="pro-span"> @item.Product.ProName</span>
+                    </div>
+                    <div class="pro-price">
+                        <span class="pro-span"> @item.FinalPrice</span>
+                    </div>
+                    <a href="@Url.Action("BuyNow","Order",new { ProID = item.Product.ProID, page = Model.PageNumber })" class="pro-act btn btn-success">Mua ngay</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="div-page">
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) / @Model.PageCount
+</div>
+<div class="MenuPage containerli">
+    @Html.PagedListPager(Model, page => Url.Action("Products", "Product", new { page = page }))
+</div>
+

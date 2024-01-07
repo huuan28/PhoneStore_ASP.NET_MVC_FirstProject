@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DAWebPhone.Models.Brand>
+
+@foreach (var i in Model)
+{
+    <li>
+        <a id="@i.BraID" href="@Url.Action("List","Product", new {bra = i.BraID})">
+            <i class="bi bi-circle"></i>
+            <span>
+                @i.BraName
+            </span>
+        </a>
+    </li>
+}

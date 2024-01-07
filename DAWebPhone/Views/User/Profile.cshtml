@@ -1,0 +1,81 @@
+﻿@model DAWebPhone.Models.Customer
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/Content/infopages.css" rel="stylesheet" />
+<style>
+    #avt {
+        position: relative;
+        border: 4px solid darkorange;
+        border-radius: 5px;
+    }
+
+        #avt a {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            border-radius: 0
+        }
+
+    #main {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<div id="main" class="container" style="margin:30px auto; padding:20px;">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div id="avt">
+                <img src="@Model.CusAvatar" style="width:100%"/>
+                @Html.ActionLink("Cập nhật thông tin", "EditProfile", new { id = Model.CusID }, new { @class = "btn btn-danger" })
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="div-tit">
+                <h2>Thông tin tài khoản</h2>
+                <hr />
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="bg-info">Tên</th>
+                    <td>@Model.CusName</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Email</th>
+                    <td>@Model.CusEmail</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Số điện thoại</th>
+                    <td>@Model.CusPhone</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">giới tính</th>
+                    <td>@Model.GoiTinh</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Ngày sinh</th>
+                    <td>@Model.CusBirth</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Địa chỉ</th>
+                    <td>@Model.CusAddress</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Cấp độ</th>
+                    <td>@Model.VIP</td>
+                </tr>
+                <tr>
+                    <th class="bg-info">Số dư</th>
+                    <td>@Model.Sodu</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

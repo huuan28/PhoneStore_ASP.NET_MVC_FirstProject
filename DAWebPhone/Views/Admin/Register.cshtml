@@ -1,0 +1,86 @@
+﻿@model DAWebPhone.Models.AdminUser
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<style>
+    .white {
+        margin: 20px auto;
+        width: 400px;
+        height: 970px;
+        background-color:aliceblue;
+        padding: 10px;
+        border-radius: 15px;
+        position: relative;
+    }
+
+        .white input, label, select {
+            margin-left: 30px;
+            width: 320px;
+        }
+        .white button {
+            width: 200px;
+            margin-left:80px;
+        }
+</style>
+<div class="white">
+    <h2 class="text-danger" style="text-align: center; margin-top:20px;">Tạo tài khoản admin</h2>
+    <br />
+    @using (Html.BeginForm("Register", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <p class="text-danger"> @Html.ValidationSummary(true)</p>
+        <div class="mb-3 mt-3">
+            @Html.LabelFor(model => model.AdmLogName, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmLogName, new { @class = "form-control" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmLogName)</p>
+            <p>@ViewBag.ExistName</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmPass, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmPass, new { @class = "form-control", @type = "password" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmPass)</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.ConfirmPass, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.ConfirmPass, new { @class = "form-control", @type = "password" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.ConfirmPass)</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmName, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmName, new { @class = "form-control" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmName)</p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmEmail, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmEmail, new { @class = "form-control" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmEmail)</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmPhone, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmPhone, new { @class = "form-control" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmPhone)</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmGender, new { @class = "form-label" })
+
+            <select name="AdmGender" class="form-control" style="width:320px">
+                <option value="0">Nam</option>
+                <option value="1">Nữ</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmBirth, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmBirth, new { @class = "form-control", @type = "date" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmBirth)</p>
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.AdmAddress, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.AdmAddress, new { @class = "form-control" })
+            <p class="text-danger">@Html.ValidationMessageFor(model => model.AdmAddress)</p>
+        </div>
+        <button type="submit" class="btn btn-primary">XÁC NHẬN</button>
+    }
+</div>

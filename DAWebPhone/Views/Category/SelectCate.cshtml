@@ -1,0 +1,2 @@
+﻿@model DAWebPhone.Models.Category
+@Html.DropDownListFor(model => model.CatID, new SelectList(Model.CateList.OrderBy(model => model.CatID), "CatID", "CatName"), "--Chọn phân loại--", new { @class = "form-control"})

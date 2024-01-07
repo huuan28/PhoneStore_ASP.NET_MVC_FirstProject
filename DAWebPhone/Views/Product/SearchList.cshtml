@@ -1,0 +1,50 @@
+﻿@model PagedList.PagedList<ProductDetailViewModel>
+@using DAWebPhone.Models;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "SearchList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h2 class="tit">Danh sách tìm kiếm: <span class="text-danger">"@ViewBag.Search"</span></h2>
+<div class="div-page">
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) / @Model.PageCount
+</div>
+<div class="MenuPage containerli">
+    @Html.PagedListPager(Model, page => Url.Action("SearchList", "Product", new { s = ViewBag.search, page = page }))
+</div>
+<link href="~/Content/pagelist.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="pro-box" onclick="window.location.href = '@Url.Action("DetailPro","Product",new { id = item.Product.ProID })'">
+
+                    <div class="pro-img" href="#" id="@item.Product.ProID">
+                        <img src="@item.Product.BaseImg" />
+                    </div>
+                    <img src="~/Images/boom.png" class="saleimg" />
+                    <div class="pro-sale">
+                        -@item.Product.SalePercent%
+                    </div>
+                    <a href="@Url.Action("AddToCart","Cart",new {id = item.Product.ProID, page = Model.PageNumber})" class="pro-cart btn btn-danger"><i class='bx bx-cart-add'></i></a>
+                    <div class="pro-name">
+                        <span class="pro-span"> @item.Product.ProName</span>
+                    </div>
+                    <div class="pro-price">
+                        <span class="pro-span"> @item.FinalPrice</span>
+                    </div>
+                    <a href="@Url.Action("DetailPro","Product",new { id = item.Product.ProID })" class="pro-act btn btn-success">Xem chi tiết</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="div-page">
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) / @Model.PageCount
+</div>
+<div class="MenuPage containerli">
+    @Html.PagedListPager(Model, page => Url.Action("SearchList", "Product", new {s=ViewBag.search, page = page }))
+</div>
+
+

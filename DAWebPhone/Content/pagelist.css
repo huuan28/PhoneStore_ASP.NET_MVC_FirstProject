@@ -1,0 +1,25 @@
+﻿.div-page {
+    text-align: center;
+}
+
+.containerli {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .containerli a {
+        border-radius: 5px;
+        background-color: orangered;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: white
+    }
+
+.MenuPage li {
+    display: inline;
+    padding-top: 5px;
+    margin: 5px;
+}
+

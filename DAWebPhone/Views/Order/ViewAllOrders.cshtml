@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DAWebPhone.Models.OrderViewModel>
+
+@{
+    ViewBag.Title = "ViewAllOrders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center;color:red;">Danh sách đơn hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã đơn
+        </th>
+        <th>
+            Khách hàng
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.OrdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.DeliAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.OrdStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.Handler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.PayMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.AcceptedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPro.OrdID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.CusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPro.OrdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPro.DeliAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminUser.AdmName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPro.AcceptedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Chi tiết", "ViewAdminOrder", new { id = item.OrderPro.OrdID }, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>

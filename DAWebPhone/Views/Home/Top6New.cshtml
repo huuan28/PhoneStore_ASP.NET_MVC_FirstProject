@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DAWebPhone.Models.Product>
+
+<div id="topnew" class="xxx carousel slide" data-bs-ride="carousel" style="width:85%">
+    <div class="carousel-indicators">
+
+        <button type="button" data-bs-target="#topnew" data-bs-slide-to="0" class="active"></button>
+        @for (int i = 1; i <= 6; i++)
+        {
+            <button type="button" data-bs-target="#topnew" data-bs-slide-to="@i"></button>
+        }
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Model.First().BaseImg" style="width:100%">
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item">
+                <img src="@item.BaseImg" class="w-100" />
+            </div>
+        }
+    </div>
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#topnew" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#topnew" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>

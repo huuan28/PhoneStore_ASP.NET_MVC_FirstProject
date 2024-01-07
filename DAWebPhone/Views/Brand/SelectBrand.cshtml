@@ -1,0 +1,2 @@
+﻿@model DAWebPhone.Models.Brand
+@Html.DropDownListFor(model => model.BraID, new SelectList(Model.BrandList.OrderBy(model => model.BraID), "BraID", "BraName"), "--Chọn hãng--", new { @class = "form-control" })

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="402a99dbdc3845dea4cd4938d7036b7b" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DBWebPhoneModel.AdminUser" Width="1.5" PointX="10.625" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Brand" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Cart" Width="1.5" PointX="6.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Category" Width="1.5" PointX="0.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Customer" Width="1.5" PointX="8.625" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Device" Width="1.5" PointX="4.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.ImagesPro" Width="1.5" PointX="0.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.OrderDetail" Width="1.5" PointX="4.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.OrderPro" Width="1.5" PointX="6.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBWebPhoneModel.Product" Width="1.5" PointX="2.625" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_OP_AD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_PRO_BRA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_CARD_PRO" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_CART_CUS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_PRO_CAT" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK__OrderPro__CusID__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_DV_PRO" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_OD_DV" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK__ImagesPro__ProID__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBWebPhoneModel.FK_OD_OP" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

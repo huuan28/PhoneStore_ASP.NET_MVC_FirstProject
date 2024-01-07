@@ -1,0 +1,54 @@
+﻿@model DAWebPhone.Models.ProductDetailViewModel
+@using DAWebPhone.Models;
+@{
+    ViewBag.Title = "BuyNow";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="pro-box">
+
+                <div class="pro-img">
+                    <img src="@Model.Product.BaseImg" />
+                </div>
+                <img src="~/Images/boom.png" class="saleimg" />
+                <div class="pro-sale">
+                    -@Model.Product.SalePercent%
+                </div>
+                <div class="pro-name">
+                    <span class="pro-span"> @Model.Product.ProName</span>
+                </div>
+                <div class="pro-price">
+                    <span class="pro-span"> @Model.FinalPrice</span>
+                </div>
+            </div>
+        </div>
+        <div style="padding:80px" class="col-12 col-md-8">
+            <form action="@Url.Action("OrderNow","Order")" method="post">
+                <input type="number" name="ProID" value="@Model.Product.ProID" hidden />
+                <input type="number" name="CusID" value="@ViewBag.Cus" hidden />
+                <label>Số lượng</label>&nbsp;
+                <input type="number" name="Quantity" value="1" /> <hr />
+                <label>Màu sắc</label>&nbsp;
+                <select name="Color">
+                    @foreach (var i in Model.Product.ListColor())
+                    {
+                        <option value="@i">@Translate.Color(i)</option>
+                    }
+                </select>
+                <hr />
+                <input type="text" name="DeliAddress" placeholder="Nhập địa chỉ giao hàng" /><hr />
+                <label>Hình thức thanh toán</label>&nbsp;
+                <select name="PayMethod">
+                    <option value="0">Ship COD</option>
+                    <option value="1">Trừ tài khoản</option>
+                </select>
+                <hr />
+                <input type="submit" value="Xác nhận" class="btn btn-success" />
+
+            </form>
+        </div>
+    </div>
+</div>

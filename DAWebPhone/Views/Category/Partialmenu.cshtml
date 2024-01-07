@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DAWebPhone.Models.Category>
+@foreach (var i in Model)
+{
+
+    <li>
+        <a href="@Url.Action("List","Product", new {cate = i.CatID})">
+            <i class="bi bi-circle"></i><span>@i.CatName</span>
+        </a>
+    </li>
+
+}

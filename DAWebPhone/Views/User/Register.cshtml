@@ -1,0 +1,99 @@
+﻿@model DAWebPhone.Models.Customer
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Empty.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center form_container">
+                @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusLogName)</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control input_user dai" id="name" name="CusLogName" placeholder="Tài khoản">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control input_pass" id="pwd" name="CusPass" placeholder="Mật khẩu">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusPass)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control input_pass" id="pwd" name="ConfirmPass" placeholder="Xác nhận mật khẩu">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.ConfirmPass)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-angry"></i></span>
+                        </div>
+                        <input type="text" class="form-control input_pass" id="pwd" name="CusName" placeholder="Họ và tên">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusName)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="	far fa-comment-alt"></i></span>
+                        </div>
+                        <input type="email" class="form-control input_pass" id="pwd" name="CusEmail" placeholder="Email">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusEmail)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-cookie"></i></span>
+                        </div>
+                        <input type="text" class="form-control input_pass" id="pwd" name="CusPhone" placeholder="Số điện thoại">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusPhone)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-crown"></i></span>
+                        </div>
+                        <select class="form-control input_pass" name="CusGender">
+                            <option value="2">Giới tính</option>
+                            <option value="0">Nam</option>
+                            <option value="1">Nữ</option>
+                        </select>
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusGender)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="	fas fa-crow"></i></span>
+                        </div>
+                        <input type="date" class="form-control input_pass" id="pwd" name="CusBirth">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusBirth)</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="far fa-credit-card"></i></span>
+                        </div>
+                        <input type="text" class="form-control input_pass" name="CusAddress" placeholder="Địa chỉ">
+                    </div>
+                    <p class="text-danger">@Html.ValidationMessageFor(model => model.CusAddress)</p>
+
+                    <button type="submit" class="btn login_btn">Đăng ký</button>
+
+                }
+            </div>
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    <a class="btn btn-success" href="@Url.Action("Login","Admin")">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
